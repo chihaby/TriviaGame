@@ -1,8 +1,8 @@
 body {
     background-color:#f97d25;    
+    text align-self: center;
 }
 h1,h2 {
-    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -10,14 +10,11 @@ h1 {
     color: black;
     text-emphasis-color: black;
 }
-h2 {
-    text-align: center;
-}
+
 .title {
     text-align: center;
-    background-color:beige;
+    background-color:wheat;
     color: black;
-    text-emphasis-color: beige;
     padding: 25px 10px;
     margin: 10px 50px 30px 50px;
     border-radius: 25px;
@@ -26,32 +23,30 @@ h2 {
 .time {
     text-align: center;
     background-color: black;
-    border-radius: 25px;
+    border-radius: 50px;
     color: beige;
-    margin: 0px 100px 50px 100px ;
+    margin: 0px 200px 50px 200px ;
     padding: 5px;
-}
-
-#counter {
-    color:beige;
     font-size: 28px;
 }
 
+
+
 .q {
     text-align: center;
-    background-color: burlywood;
+    background-color: black;
     border-radius: 25px;
-    color: black;
-    margin: -30px 100px 20px 100px ;
+    color: beige;
+    margin: -30px 50px 20px 50px ;
     padding: 10px;
 }
 
 .a {
     text-align: center;
-    background-color: burlywood;
+    background-color:wheat;
     border-radius: 25px;
     color: black;
-    margin: 0px 100px 0px 100px ;
-    padding-bottom: 100px;
+    margin: 0px 50px 0px 50px ;
+    padding: 20px 10px 200px 10px;
 }
 
