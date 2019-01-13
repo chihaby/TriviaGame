@@ -1,26 +1,12 @@
-var time = setInterval(function(){ 
-    var seconds = Math.floor((1000 * 60)) / 1000;
-        console.log("Hello"); 
-    }, 3000);
+var correctAnswer = 0;
+var incorrectAnswer = 0;
+var unAnswer = 0;
 
-
-$("#name").text('Time Remaining: '+ time);
-
-function startTimer(duration, display) {
-    var timer = duration, seconds;
-    setInterval(function () {
-        seconds = parseInt(timer % 60, 10);
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.text(seconds);
-
-        if (--timer < 0) {
-            timer = duration;
-        }
+function countDown(n) {
+    const int = setInterval(function () {
+        $("#counter").text(n);
+        n-- || clearInterval(int);  //if i is 0, clr interval
     }, 1000);
 }
+countDown(30);
 
-jQuery(function () {
-    var thirtySeconds = 30,
-        display = $('#time');
-    startTimer(thirtySeconds, display);
-});
