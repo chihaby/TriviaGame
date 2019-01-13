@@ -1,22 +1,20 @@
 body {
     background-color:#f97d25;    
-    text align-self: center;
 }
+
 h1,h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 h1 {
     color: black;
-    text-emphasis-color: black;
 }
 
 .title {
     text-align: center;
-    background-color:wheat;
-    color: black;
-    padding: 25px 10px;
-    margin: 10px 50px 30px 50px;
+    background-color:rgb(238, 238, 207);
+    padding: 25px 20px 10px 20px;
+    margin: 10px 50px 20px 50px;
     border-radius: 25px;
 }
 
@@ -30,11 +28,9 @@ h1 {
     font-size: 28px;
 }
 
-
-
 .q {
     text-align: center;
-    background-color: black;
+    background-color: #3a4660;
     border-radius: 25px;
     color: beige;
     margin: -30px 50px 20px 50px ;
@@ -43,9 +39,9 @@ h1 {
 
 .a {
     text-align: center;
-    background-color:wheat;
+    background-color: #3a4660;
     border-radius: 25px;
-    color: black;
+    color: beige;
     margin: 0px 50px 0px 50px ;
     padding: 20px 10px 200px 10px;
 }
