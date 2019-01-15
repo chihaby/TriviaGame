@@ -13,20 +13,28 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="title">
+    <div class='wrapper'>
+        <div class='title'>
             <h1>Geography Trivia</h1>
         </div>
 
-        <div class="time">
-            <span id='counter'></span>
+        <div class='time'>
+            <span id='timer'></span>
         </div>  
 
-        <div class="q&a">
-            <div class='q'>question</div>
-            <div class="a">answer</div>
-        </div>
-     
+        <div>
+            <div class='q' id='question'></div>
+            <div class='a'>
+                <button class= 'options' id='answerA'>A: </button>
+                <button class= 'options' id='answerB'>B: </button>
+                <button class= 'options' id='answerC'>C: </button>
+                <button class= 'options' id='answerD'>D: </button>             
+            </div>       
+        </div>   
+
+        <footer>
+            <p id='progress'>Question x of y </p>
+        </footer>
 
     </div>
 

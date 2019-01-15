@@ -1,7 +1,7 @@
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unAnswer = 0;
-var questions = [{
+var questionsArr = [{
     question: "In Aladdin, what is the name of Jasmine's pet tiger?",
     choices: ["Rajah", "Bo", "Iago", "Jack"],
     images: ["../images/Rajah.gif"],
@@ -43,14 +43,31 @@ var questions = [{
 }];
 
 function countDown(n) {
-    const int = setInterval(function () {
-        $("#counter").text(n);
+    const int = setInterval(function() {
+        $('#timer').text(n);
         n-- || clearInterval(int);  //if i is 0, clr interval
     }, 1000);
 }
-countDown(30);
 
 var ask = function() {
+    var elements = $();
+    for (var i =0; i<questionsArr.length; i++){
+    // $('#question').text(questionsArr[i].question);
+    var element = $('<div>'+ questionsArr[i].question +'</div>')
+    elements = elements.add(element);
     
+    }
+    $('#question').append(elements);
+    countDown(30); 
 }
-$('#question-div').text();
+ask();
+
+
+
+
+
+
+
+//$('#question').text(questionsArr[i].question);
+
+//fat arrow function
