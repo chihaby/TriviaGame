@@ -1,3 +1,5 @@
+var current = 0;
+var count = 30;
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unAnswer = 0;
@@ -43,24 +45,38 @@ var questionsArr = [{
 }];
 
 function countDown(n) {
-    const int = setInterval(function() {
+    let int = setInterval(function() {
         $('#timer').text(n);
         n-- || clearInterval(int);  //if i is 0, clr interval
     }, 1000);
 }
 
-var ask = function() {
-    var elements = $();
-    for (var i =0; i<questionsArr.length; i++){
-    // $('#question').text(questionsArr[i].question);
-    var element = $('<div>'+ questionsArr[i].question +'</div>')
-    elements = elements.add(element);
-    
+var _q = function() {   
+    countDown(3);
+    $('#question').text(questionsArr[current].question);
+    $('#answerA').text(questionsArr[current].choices[0]);
+    $('#answerB').text(questionsArr[current].choices[1]);
+    $('#answerC').text(questionsArr[current].choices[2]);
+    $('#answerD').text(questionsArr[current].choices[3]);
+    $("button").click(function(){
+       
+            if( $(this).val() == questionsArr[current].correct){
+            console.log("CORRECT ANSWER");
+            }
+            else if( n === 0){
+                console.log('n=0');
+            } else {
+            console.log('no');
+            $('.result').text('Correct answer is: ' + questionsArr[current].choices[0]);
+            setTimeout(function() {
+                // nextQ();
+                console.log('done');
+            });
+            }    
+        });   
     }
-    $('#question').append(elements);
-    countDown(30); 
-}
-ask();
+
+_q();
 
 
 
@@ -68,6 +84,45 @@ ask();
 
 
 
-//$('#question').text(questionsArr[i].question);
 
-//fat arrow function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var timer = function() {
+//     count--;
+//     if (count <= 0) {
+//         setTimeout(function() {
+//             nextQ();
+//         });
+
+//     } else {
+//         $("#timer").text(count--);
+//     }
+// };
+
+
+
+
