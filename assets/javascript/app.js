@@ -1,84 +1,86 @@
-var current = 0;
-var count = 30;
-var correctAnswer = 0;
-var incorrectAnswer = 0;
-var unAnswer = 0;
-var questionsArr = [{
-    question: "In Aladdin, what is the name of Jasmine's pet tiger?",
-    choices: ["Rajah", "Bo", "Iago", "Jack"],
-    images: ["../images/Rajah.gif"],
-    correct: 0
-}, {
-    question: "In Peter Pan, Captain Hook had a hook on which part of his     body?",
-    choices: ["Right Foot", "Left Hand", "Left Foot", "Right Hand"],
-    correct: 1
+var counter = 0;
+var sec = 30;
+var correct = 0;
+var incorrect = 0;
 
-}, {
-    question: "In the Lion King, where does Mufasa and his family live?",
-    choices: ["Rocky Mountain", "Forest", "Desert", "Pride Rock"],
-    correct: 3
+var questionArr = ["What is the capital of Australia?", "What is the capital of Liberia?", "What is the capital of Taiwan?", "What is the capital of Japan?", "What is the capital of China?", "What is the capital of Turkey?", "What is the capital of Colombia?", "What is the capital of India?"];
+var answerArr = [["Canberra", "Melbourne", "Sydney", "Darwin"], ["Arthington","Monrovia","Tuzon","Marshall"], ["Tainan City", "Taichung", "Taipei", "Hsinchu"], ["Kyoto","Hiroshima","Tokyo","Osaka"], ["Hong Kong", "Macau", "Shanghai", "Beijing"], ["Ankara","Istanbul","Antalya","Bursa"], ["Medellin", "Bogota", "Cartagena", "Cali"], ["Mumbai","Hyderabad","Bangalore","New Delhi"]];
+var imageArr = ["<img class='center-block img-right' src='img/australia.png'>", "<img class='center-block img-right' src='img/liberia.png'>", "<img class='center-block img-right' src='img/taiwan.png'>", "<img class='center-block img-right' src='img/japan.png'>", "<img class='center-block img-right' src='img/china.png'>", "<img class='center-block img-right' src='img/turkey.png'>", "<img class='center-block img-right' src='img/colombia.png'>", "<img class='center-block img-right' src='img/india.png'>"];
+var correctArr = ["Canberra", "Monrovia", "Taipei", "Tokyo", "Beijing", "Ankara", "Bogota", "New Delhi"];
 
-}, {
-    question: "In Beauty and the Beast, how many eggs does Gaston eat for    breakfast?",
-    choices: ["2 Dozen", "5 Dozen", "5000", "0"],
-    correct: 1
+var start = function() {      
+    $('#question').text(questionArr[counter]);
+    $('#answerA').text(answerArr[counter][0]);
+    $('#answerB').text(answerArr[counter][1]);
+    $('#answerC').text(answerArr[counter][2]);
+    $('#answerD').text(answerArr[counter][3]);
 
-}, {
-    question: "In Alice in Wonderland, what is the name of Alice’s kitten?",
-    choices: ["Dinah", "Sammie", "Kat", "Luna"],
-    correct: 0
-
-}, {
-    question: "After being on earth, where did Hercules first meet his   father Zeus?",
-    choices: ["Mount Olympus", "Greece", "In the Temple of Zeus", "Elysian   Fields"],
-    correct: 2
-
-}, {
-    question: "During the ballroom scene of Beauty & the Beast, what color is Belle’s Gown?",
-    choices: ["Yellow", "Blue", "Gold", "White"],
-    correct: 2
-
-}, {
-    question: "In Bambi, what word does the owl use to describe falling in love?",
-    choices: ["Whimsical", "Miserable", "Joyful", "Twitterpatted"],
-    correct: 3
-}];
-
-function countDown(n) {
-    let int = setInterval(function() {
-        $('#timer').text(n);
-        n-- || clearInterval(int);  //if i is 0, clr interval
-    }, 1000);
-}
-
-var _q = function() {   
-    countDown(3);
-    $('#question').text(questionsArr[current].question);
-    $('#answerA').text(questionsArr[current].choices[0]);
-    $('#answerB').text(questionsArr[current].choices[1]);
-    $('#answerC').text(questionsArr[current].choices[2]);
-    $('#answerD').text(questionsArr[current].choices[3]);
-    $("button").click(function(){
-       
-            if( $(this).val() == questionsArr[current].correct){
-            console.log("CORRECT ANSWER");
+    $("button").click(function(){   
+            if( $(this).text() == correctArr[counter]){
+                console.log("CORRECT ANSWER");
+                
             }
-            else if( n === 0){
-                console.log('n=0');
-            } else {
-            console.log('no');
-            $('.result').text('Correct answer is: ' + questionsArr[current].choices[0]);
-            setTimeout(function() {
-                // nextQ();
-                console.log('done');
-            });
+            else {
+                console.log('Wrong answer');
+                $('.result').text('Correct answer is: ' + correctArr[counter]);
             }    
-        });   
+        });         
     }
+start();
 
-_q();
 
 
+
+
+
+
+// function countDown(n) {
+//     let int = setInterval(function() {
+//         $('#timer').text(n);
+//         n-- || clearInterval(int);  //if i is 0, clr interval
+//     }, 1000);
+// }
+// var _q = function() {   
+//     // countDown(3);
+//     $('#question').text(questionArr[current].question);
+//     $('#answerA').text(questionArr[current].choices[0]);
+//     $('#answerB').text(questionArr[current].choices[1]);
+//     $('#answerC').text(questionArr[current].choices[2]);
+//     $('#answerD').text(questionArr[current].choices[3]);
+//     $("button").click(function(){
+       
+//             if( $(this).val() == questionsArr[current].correct){
+//                 console.log("CORRECT ANSWER");
+//             }
+//             else {
+//                 console.log('no');
+//                 $('.result').text('Correct answer is: ' + questionsArr[current++].choices[0]);
+//             }    
+//         }); 
+         
+//     }
+
+// _q();
+
+// var nextQ = function() {   
+//     countDown(3);
+//     $('#question').text(questionsArr[current++].question);
+//     $('#answerA').text(questionsArr[current++].choices[0]);
+//     $('#answerB').text(questionsArr[current++].choices[1]);
+//     $('#answerC').text(questionsArr[current++].choices[2]);
+//     $('#answerD').text(questionsArr[current++].choices[3]);
+//     $("button").click(function(){
+       
+//             if( $(this).val() == questionsArr[current++].correct){
+//                 console.log("CORRECT ANSWER");
+//             }
+//             else {
+//                 console.log('no');
+//                 $('.result').text('Correct answer is: ' + questionsArr[current++].choices[0]);
+//             }    
+//         }); 
+      
+//     }
 
 
 

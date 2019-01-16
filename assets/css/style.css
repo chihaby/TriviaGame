@@ -59,3 +59,11 @@ h1 {
     background-color: #f97d25;
     color: beige;
 }
+.result {
+    text-align: center;
+    background-color: beige;
+    border-radius: 25px;
+    color: black;
+    margin: 20px 50px 20px 50px ;
+    padding: 20px 10px 20px 10px;
+}
