@@ -1,5 +1,5 @@
+var timeFrame = 5;
 var counter = 0;
-var sec = 30;
 var correct = 0;
 var incorrect = 0;
 
@@ -14,19 +14,130 @@ var start = function() {
     $('#answerB').text(answerArr[counter][1]);
     $('#answerC').text(answerArr[counter][2]);
     $('#answerD').text(answerArr[counter][3]);
-
-    $("button").click(function(){   
+    $("button").click(function(){              
             if( $(this).text() == correctArr[counter]){
+                correct++;
+                $('.result').text('CORRECT');             
+                $('#progress').text('CORRECT: ' + correct + '/ ' + questionArr.length);
                 console.log("CORRECT ANSWER");
-                
+                next();
             }
             else {
                 console.log('Wrong answer');
+                incorrect++;
                 $('.result').text('Correct answer is: ' + correctArr[counter]);
+                $('#progress').text('WRONG: ' + incorrect + '   ------  CORRECT: ' + correct);
+                next();
             }    
         });         
     }
+
+function countDown(){
+
+    let timer = $('#timer');
+    timer.text(timeFrame);
+
+    var int = setInterval(timeIt, 1000);
+
+    function timeIt(){
+        timeFrame--;
+        timer.html(timeFrame);
+        if (timeFrame === 0){
+            clearInterval(int);
+            timer.text('Time Up');
+            next();
+            //next question
+        }
+    }    
+}
+
+var next = function(){
+    $('#question').text(questionArr[counter++]);
+    $('#answerA').text(answerArr[counter++][0]);
+    $('#answerB').text(answerArr[counter++][1]);
+    $('#answerC').text(answerArr[counter++][2]);
+    $('#answerD').text(answerArr[counter++][3]);
+    $("button").click(function(){              
+            if( $(this).text() == correctArr[counter++]){
+                correct++;
+                $('.result').text('CORRECT');             
+                $('#progress').text('CORRECT: ' + correct + '/ ' + questionArr.length);
+                console.log("CORRECT ANSWER");
+            }
+            else {
+                console.log('Wrong answer');
+                incorrect++;
+                $('.result').text('Correct answer is: ' + correctArr[counter++]);
+                $('#progress').text('WRONG: ' + incorrect + '   ------  CORRECT: ' + correct);
+            }    
+        });       
+}
+
 start();
+countDown();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function countDown(n) {
+//     let int = setInterval(function() {
+//         $('#timer').text(n);
+//         n-- || clearInterval(int);  //if i is 0, clr interval
+//     }, 1000);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
