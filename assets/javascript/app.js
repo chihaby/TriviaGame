@@ -7,38 +7,11 @@ var questionArr = ["What is the capital of Australia?", "What is the capital of 
 var answerArr = [["Canberra", "Melbourne", "Sydney", "Darwin"], ["Arthington","Monrovia","Tuzon","Marshall"], ["Tainan City", "Taichung", "Taipei", "Hsinchu"], ["Kyoto","Hiroshima","Tokyo","Osaka"], ["Hong Kong", "Macau", "Shanghai", "Beijing"], ["Ankara","Istanbul","Antalya","Bursa"], ["Medellin", "Bogota", "Cartagena", "Cali"], ["Mumbai","Hyderabad","Bangalore","New Delhi"]];
 var correctArr = ["Canberra", "Monrovia", "Taipei", "Tokyo", "Beijing", "Ankara", "Bogota", "New Delhi"];
 
-function start() {    
-  
-    var n = counter;
-    $('#question').text(questionArr[n]);
-    $('#answerA').text(answerArr[n][0]);
-    $('#answerB').text(answerArr[n][1]);
-    $('#answerC').text(answerArr[n][2]);
-    $('#answerD').text(answerArr[n][3]);
-
-    $("button").click(function(){  
-        
-        $('#question').text(questionArr[n]);
-        $('#answerA').text(answerArr[n][0]);
-        $('#answerB').text(answerArr[n][1]);
-        $('#answerC').text(answerArr[n][2]);
-        $('#answerD').text(answerArr[n][3]);
-        
-
-        if( $(this).text() === correctArr[n]){
-            correct++;
-            $('.result').text('CORRECT');             
-            $('#progress').text('CORRECT: '+ correct)                      
-        }
-        if( $(this).text() !== correctArr[n]) {
-            incorrect++;
-            $('.result').text('Correct answer is: ' + correctArr[n]);
-            $('#progress').text('WRONG: '+ incorrect)                            
-        }  
-    n++;
-    });  
-
-}
+$('#question').text(questionArr[0]);
+$('#answerA').text(answerArr[0][0]);
+$('#answerB').text(answerArr[0][1]);
+$('#answerC').text(answerArr[0][2]);
+$('#answerD').text(answerArr[0][3]);
 
 function countDown(){
     let timer = $('#timer');
@@ -53,6 +26,31 @@ function countDown(){
         }
     }    
 }
+
+function start() {    
+    var n = counter;
+    $("button").click(function(){   
+        if( $(this).text() === correctArr[n]){
+            correct++;
+            $('.result').text('CORRECT');             
+            $('#progress').text('CORRECT: '+ correct)                      
+        }
+        if( $(this).text() !== correctArr[n]) {
+            incorrect++;
+            $('.result').text('Correct answer is: ' + correctArr[n]);
+            $('#progress').text('WRONG: '+ incorrect)                            
+        }  
+
+        $('#question').text(questionArr[n+1]); //1
+        $('#answerA').text(answerArr[n+1][0]);
+        $('#answerB').text(answerArr[n+1][1]);
+        $('#answerC').text(answerArr[n+1][2]);
+        $('#answerD').text(answerArr[n+1][3]);
+    n++;
+    });  
+}
+
+
 
 start();
 countDown();
